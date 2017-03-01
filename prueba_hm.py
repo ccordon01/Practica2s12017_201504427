@@ -5,6 +5,7 @@ sys.path.append('./')
 from nodos import Claseuno
 from nodos import Clasedos
 from lista import ClaseLista
+from listaPila import ClaseListaPila
 test = ClaseLista()
 test.insertarAlFrente("hola")
 test.insertarAlFrente("adios")
@@ -15,6 +16,9 @@ test.mostrar()
 test.eliminarDelFrente()
 test.mostrar()
 test.estaVacia() 
+pila = ClaseListaPila()
+pila.push("NA")
+pila.mostrar()
 print "Hola Mundo"
 #Claseuno();
 #Clasedos();

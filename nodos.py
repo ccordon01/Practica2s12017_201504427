@@ -1,6 +1,6 @@
 
 #Clase De Nodo Base De Una Lista
-class Claseuno():
+class Claseuno(object):
 
 #Constructor
      def __init__(self,datos,nodo):
