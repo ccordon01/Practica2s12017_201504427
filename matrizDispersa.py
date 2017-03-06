@@ -144,13 +144,13 @@ class ClassMatriz(Clasetres):
 ###########################        Insertar correo        ###################################
 
     def insertarCorreo(self,name,dominio):
-    	 self.insertarCabeceraLetras(name[0])
-    	 self.insertarCabeceraDominios(dominio)
-    	 listaData = ClaseListaDoble()
+         self.insertarCabeceraLetras(name[0])
+         self.insertarCabeceraDominios(dominio)
+         listaData = ClaseListaDoble()
          NodoLetra = self.nodoL(name[0])
          nodoData = Clasecuatro(name[0],dominio,listaData)
          if NodoLetra == None:
-         	return "null"
+             return "null"
          if NodoLetra.nodoSiguiente == None:
              nuevo = Clasetres(nodoData,None,NodoLetra,None,None)
              NodoLetra.nodoSiguiente = nuevo
@@ -230,17 +230,17 @@ class ClassMatriz(Clasetres):
          return False
 
     def insertarDatos(self,name,dominio):
-    	 NodoLetra = self.nodoL(name[0])
-    	 if NodoLetra.nodoSiguiente == None:
-    	 	return "no hay siguiente"
-    	 NodoDominio = self.nodoD(dominio)
-    	 nodoMagico = self.nodoM(NodoLetra,dominio)
-    	 if NodoDominio == None:
-    	 	return "null dominio"
-    	 if nodoMagico == None:
-    	 	return "null magico"
-    	 nodoMagico.lista.insertarAlFinal(name + "@" + dominio)
-    	 if NodoDominio.nodoInferior == None:
+         NodoLetra = self.nodoL(name[0])
+         if NodoLetra.nodoSiguiente == None:
+             return "no hay siguiente"
+         NodoDominio = self.nodoD(dominio)
+         nodoMagico = self.nodoM(NodoLetra,dominio)
+         if NodoDominio == None:
+             return "null dominio"
+         if nodoMagico == None:
+             return "null magico"
+         nodoMagico.lista.insertarAlFinal(name + "@" + dominio)
+         if NodoDominio.nodoInferior == None:
              NodoDominio.nodoInferior = Clasetres(nodoMagico,None,None,NodoDominio,None)
              return "Primer nodo creado con " + nodoMagico.letra
          if not self.elementExistInCabeceraLetrasM(nodoMagico.letra,NodoDominio):
@@ -270,7 +270,7 @@ class ClassMatriz(Clasetres):
     def nodoD(self,dominio):
          actual = self.primerNodo.nodoSiguiente
          while (actual != None):
-               if actual.datos is dominio:
+               if actual.datos == dominio:
                         return actual
                actual = actual.nodoSiguiente
          return None
@@ -278,7 +278,7 @@ class ClassMatriz(Clasetres):
     def nodoM(self,NodoLetra, correo):
          actual = NodoLetra.nodoSiguiente
          while (actual != None):
-               if actual.datos.correo is correo:
+               if actual.datos.correo == correo:
                    return actual.datos
                actual = actual.nodoSiguiente
          return None
@@ -293,18 +293,22 @@ class ClassMatriz(Clasetres):
          return False
 
     def findbyl(self,letra):
-    	 NodoLetra = self.nodoL(letra)
-    	 actual = NodoLetra.nodoSiguiente
-    	 text = ""
+         NodoLetra = self.nodoL(letra[0])
+         if NodoLetra == None:
+           return "Letra no existe"
+         actual = NodoLetra.nodoSiguiente
+         text = ""
          while (actual != None):
                text =text + actual.datos.lista.mostrarc()
                actual = actual.nodoSiguiente
          return text
 
     def findbyd(self,dominio):
-    	 NodoLetra = self.nodoD(dominio)
-    	 actual = NodoLetra.nodoInferior
-    	 text = ""
+         NodoLetra = self.nodoD(dominio)
+         if NodoLetra == None:
+           return "Dominio no existe"
+         actual = NodoLetra.nodoInferior
+         text = ""
          while (actual != None):
                text =text + actual.datos.lista.mostrarc()
                actual = actual.nodoInferior

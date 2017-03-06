@@ -94,14 +94,14 @@ def h114():
 @app.route('/buscarMatrizL',methods=['POST']) 
 def h1114():
     parametro = str(request.form['dato'])
-    valor = matriz.findbyl("c")
+    valor = matriz.findbyl(str(parametro))
     if valor == "null":
         return "No se encontro dato"
     return str(valor)
 @app.route('/buscarMatrizD',methods=['POST']) 
 def h11145():
     parametro = str(request.form['dato'])
-    valor = matriz.findbyd(parametro)
+    valor = matriz.findbyd(str(parametro))
     if valor == "null":
         return "No se encontro dato"
     return str(valor)
