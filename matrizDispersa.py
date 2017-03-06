@@ -125,7 +125,7 @@ class ClassMatriz(Clasetres):
     def elementExistInCabeceraDominios(self,dominio):
          actual = self.primerNodo.nodoSiguiente
          while (actual != None):
-               if actual.datos is dominio:
+               if actual.datos == dominio:
                         print "Ya existe nodo"
                         return True
                actual = actual.nodoSiguiente
@@ -310,7 +310,8 @@ class ClassMatriz(Clasetres):
          actual = NodoLetra.nodoInferior
          text = ""
          while (actual != None):
-               text =text + actual.datos.lista.mostrarc()
+               text = text + actual.datos.lista.mostrarc()
+               #return text
                actual = actual.nodoInferior
          return text
     def borrarDatos(self,name,dominio):

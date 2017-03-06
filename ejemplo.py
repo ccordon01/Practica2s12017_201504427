@@ -80,6 +80,10 @@ def h14():
     dato = str(request.form['dato2'])
     print matriz.insertarCorreo(parametro,dato)
     print matriz.insertarDatos(parametro,dato)
+    print "--Inicio Cabecera Letras--"
+    matriz.mostrarCabeceraLetras()
+    print "--Inicio Cabecera Dominios--"
+    matriz.mostrarCabeceraDominios()
     return "Se inserto correctamente " + str(parametro) +"@"+ str(dato)+ "!"
 @app.route('/borrarMatriz',methods=['POST']) 
 def h114():
